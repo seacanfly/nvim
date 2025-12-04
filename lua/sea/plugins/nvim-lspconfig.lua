@@ -186,17 +186,24 @@ return
                     },
                 },
             }
-            vim.lsp.config['cssls'] = {
-                cmd = { 'vscode-css-language-server', '--stdio' },
-                filetypes = { 'css', 'scss', 'less' },
-                root_markers = { 'package.json', '.git' },
+            
+            vim.lsp.config['tailwindcss-language-server'] = {
+                cmd = { 'tailwindcss-language-server', '--stdio' },
+                filetypes = { 'html', 'css', 'scss', 'javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'vue', 'svelte' },
+                root_markers = { 'package.json', 'tailwind.config.js', 'tailwind.config.cjs', '.git' },
                 capabilities = caps,
-                settings = {
-                    css = { validate = true },
-                    scss = { validate = true },
-                    less = { validate = true },
-                },
             }
+            -- vim.lsp.config['cssls'] = {
+                -- cmd = { 'vscode-css-language-server', '--stdio' },
+                -- filetypes = { 'css', 'scss', 'less' },
+                -- root_markers = { 'package.json', '.git' },
+                -- capabilities = caps,
+                -- settings = {
+                    -- css = { validate = true },
+                    -- scss = { validate = true },
+                    -- less = { validate = true },
+                -- },
+            -- }
 
             -- vim.lsp.config['phpls'] = {
                 -- cmd = { 'intelephense', '--stdio' },
@@ -262,5 +269,6 @@ return
         --vim.lsp.enable('phpls'),
         vim.lsp.enable('nil_ls'),
         vim.lsp.enable('pyright'),
+        vim.lsp.enable('tailwindcss-language-server'),
     },
 }
